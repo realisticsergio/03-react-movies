@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Movie } from './types/movie';
-import { fetchMovies } from './services/movieService';
-import SearchBar from './components/SearchBar/SearchBar';
-import MovieGrid from './components/MovieGrid/MovieGrid';
-import Loader from './components/Loader/Loader';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage';
-import MovieModal from './components/MovieModal/MovieModal';
+import type { Movie } from '../types/movie.ts';
+import { fetchMovies } from '../services/movieService.ts';
+import SearchBar from './SearchBar';
+import MovieGrid from './MovieGrid';
+import Loader from './Loader';
+import ErrorMessage from './ErrorMessage';
+import MovieModal from './MovieModal';
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -18,7 +18,7 @@ export default function App() {
     try {
       setLoading(true);
       setError(false);
-      setMovies([]); // Очищення перед новим пошуком
+      setMovies([]);
 
       const results = await fetchMovies(query);
       
@@ -27,7 +27,7 @@ export default function App() {
         return;
       }
       setMovies(results);
-    } catch (e) {
+    } catch {
       setError(true);
     } finally {
       setLoading(false);
@@ -43,7 +43,7 @@ export default function App() {
       {error && <ErrorMessage />}
       
       {movies.length > 0 && !loading && (
-        <MovieGrid movies={movies} onSelect={setSelectedMovie} />
+        <MovieGrid movies={movies} onSelect={setSelectedMovie}/>
       )}
 
       {selectedMovie && (

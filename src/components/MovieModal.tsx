@@ -1,14 +1,14 @@
 import css from './MovieModal.module.css';
-import { Movie } from '../types/movie';
+import type { Movie } from '../types/movie';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 interface ModalProps {
   onClose: () => void;
-  children: React.ReactNode;
+  movie: Movie;
 }
 
-export default function Modal({ children, onClose }: ModalProps) {
+export default function Modal({ movie, onClose }: ModalProps) {
   
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {

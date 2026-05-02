@@ -25,32 +25,3 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
     </ul>
   );
 }
-
-// Галерея фільмів MovieGrid
-// Компонент MovieGrid – це список карток фільмів. Він приймає два пропси:
-// onSelect – функцію для обробки кліку на картку фільму;
-// movies – масив фільмів.
-// Компонент MovieGrid має створювати DOM-елемент наступної структури:
-
-
-// <ul className={css.grid}>
-//   {/* Набір елементів списку з фільмами */}
-//   <li>
-//     <div className={css.card}>
-//       <img 
-// 		    className={css.image} 
-// 		    src="https://image.tmdb.org/t/p/w500/poster-path" 
-// 		    alt="movie title" 
-// 		    loading="lazy" 
-// 		  />
-// 	    <h2 className={css.title}>Movie title</h2>
-//     </div>
-//   </li>
-// </ul>
-
-
-// Галерея повинна рендеритися лише тоді, коли є які-небудь завантажені фільми.
-// Індикатор завантаження Loader
-// Компонент Loader має відображатись замість галереї поки відбувається запит за фільмами та створювати DOM-елемент наступної структури:
-
-// <p className={css.text}>Loading movies, please wait...</p>

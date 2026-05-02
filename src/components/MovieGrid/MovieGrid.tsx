@@ -1,5 +1,5 @@
 import type { Movie } from '../../types/movie.ts';
-import css from '../MovieGrid/MovieGrid';
+import css from '../MovieGrid/MovieGrid.module.css';
 
 interface MovieGridProps {
   movies: Movie[];
